@@ -14,8 +14,8 @@ import {
 import * as ImagePicker from "expo-image-picker";
 
 const profilMahasiswa = {
-  nama: "Galih Fajar Nugroho",
-  nim: "247411017",
+  nama: "Kelompok 4",
+  nim: "Berisi Orang-Orang hebat",
   prodi: "Sains Data",
   fakultas: "Fakultas Sains dan Teknologi",
   semester: 4,
