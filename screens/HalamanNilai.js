@@ -7,6 +7,8 @@ import {
   SafeAreaView,
   StatusBar,
 } from "react-native";
+import { useLayoutEffect } from "react";
+import { useNavigation } from "@react-navigation/native"; // ✅ BONUS 1: useNavigation hook
 
 const dataNilai = [
   { kode: "IF301", nama: "Pemrograman Mobile", nilai: 88, grade: "A", sks: 3 },
@@ -69,6 +71,9 @@ const GRADE_COLOR = {
 };
 
 export default function HalamanNilai() {
+  // ✅ BONUS 1: useNavigation() hook — navigasi dari komponen tanpa props
+  const navigation = useNavigation();
+
   // Hitung IPK
   const totalBobot = dataNilai.reduce(
     (sum, n) => sum + (GRADE_POINT[n.grade] || 0) * n.sks,
@@ -76,6 +81,13 @@ export default function HalamanNilai() {
   );
   const totalSKS = dataNilai.reduce((sum, n) => sum + n.sks, 0);
   const ipk = (totalBobot / totalSKS).toFixed(2);
+
+  // ✅ BONUS 2: navigation.setOptions() — ubah judul header secara dinamis
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: `Nilai — IPK: ${ipk}`,
+    });
+  }, [navigation, ipk]);
 
   return (
     <SafeAreaView style={styles.container}>

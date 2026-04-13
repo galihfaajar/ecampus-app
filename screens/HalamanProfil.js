@@ -20,7 +20,7 @@ const profilMahasiswa = {
   fakultas: "Fakultas Sains dan Teknologi",
   semester: 4,
   angkatan: 2024,
-  ipk: "3.92",
+  ipk: "3.72",
   sksLulus: 96,
   status: "Aktif",
   email: "247411017@mhs.uinsaid.ac.id",

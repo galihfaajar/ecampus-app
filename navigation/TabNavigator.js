@@ -14,6 +14,10 @@ const ICONS = {
   Profil: { active: "👤", inactive: "👥" },
 };
 
+// ✅ BONUS 3: tabBarBadge — hitung MK dengan nilai di bawah 80 (perlu perhatian)
+// IF303 (75) dan IF305 (78) = 2 MK di bawah 80
+const MK_PERLU_PERHATIAN = 2;
+
 export default function TabNavigator() {
   return (
     <Tab.Navigator
@@ -37,7 +41,6 @@ export default function TabNavigator() {
           height: 62,
         },
         tabBarLabelStyle: { fontSize: 11, fontWeight: "600" },
-        // Header Tab disembunyikan — header dikelola Stack di App.js
         headerShown: false,
       })}
     >
@@ -49,7 +52,17 @@ export default function TabNavigator() {
       <Tab.Screen
         name="Nilai"
         component={HalamanNilai}
-        options={{ title: "Nilai" }}
+        options={{
+          title: "Nilai",
+          // ✅ BONUS 3: badge merah di tab Nilai
+          tabBarBadge: MK_PERLU_PERHATIAN,
+          tabBarBadgeStyle: {
+            backgroundColor: "#F44336",
+            color: "#FFFFFF",
+            fontSize: 10,
+            fontWeight: "bold",
+          },
+        }}
       />
       <Tab.Screen
         name="Profil"
